@@ -1,2 +1,2 @@
-# sui-mover-2024
-Course about Sui development
+# Sui Mover 2024
+Sui development Course
