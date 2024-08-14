@@ -3,8 +3,9 @@ module sui_mover_kapy::kapy_tests {
 
     use std::string::utf8;
     use sui::test_scenario::{Self as ts, Scenario};
+    use sui_mover_kapy::config::{Self, AdminCap};
     use sui_mover_kapy::kapy::{Self, MintCap, Kapy};
-    use sui_mover_kapy::orange::{Self, AdminCap, Orange};
+    use sui_mover_kapy::orange::{Self, Orange};
 
     public fun admin(): address { @0xad }
     public fun user_0(): address { @0x100 }
@@ -16,7 +17,7 @@ module sui_mover_kapy::kapy_tests {
         let s = &mut scenario;
         {
             kapy::init_for_testing(ts::ctx(s));
-            orange::init_for_testing(ts::ctx(s));
+            config::init_for_testing(ts::ctx(s));
         };
 
         // mint 2 kapies

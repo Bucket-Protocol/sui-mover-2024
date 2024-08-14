@@ -1,7 +1,8 @@
 module sui_mover_kapy::orange {
+    
+    // Dependencies
 
-    use std::type_name::{Self, TypeName};
-    use sui::vec_map::{Self, VecMap};
+    use sui_mover_kapy::config::{Self, Config, AdminCap};
 
     // Errors
 
@@ -15,30 +16,7 @@ module sui_mover_kapy::orange {
         kind: u8,
     }
 
-    // Config
-
-    public struct Config has key {
-        id: UID,
-        mint_rules: VecMap<u8, TypeName>,
-    }
-
-    // Capability
-
-    public struct AdminCap has key, store {
-        id: UID,
-    }
-
-    // Constructor
-
-    fun init(ctx: &mut TxContext) {
-        let config = Config { id: object::new(ctx), mint_rules: vec_map::empty() };
-        transfer::share_object(config);
-
-        let cap = AdminCap { id: object::new(ctx) };
-        transfer::transfer(cap, ctx.sender());
-    }
-
-    // Public funs
+    // Public Funs
 
     public fun mint<R: drop>(
         config: &Config,
@@ -46,46 +24,21 @@ module sui_mover_kapy::orange {
         _rule_witness: R,
         ctx: &mut TxContext,
     ): Orange {
-        let rule_name = type_name::get<R>();
-        if (*vec_map::get(&config.mint_rules, &kind) != rule_name)
+        if (!config::is_valid_mint_rule<R>(config, kind))
             err_invalid_mint_rule();
+
         Orange {
             id: object::new(ctx),
             kind,
         }
     }
 
-    // Friend funs
+    // Friend Funs
 
     public(package) fun destroy(orange: Orange): u8 {
         let Orange { id, kind } = orange;
         object::delete(id);
         kind
-    }
-
-    // Admin funs
-
-    public fun add_rule<R: drop>(
-        _cap: &AdminCap,
-        config: &mut Config,
-        kind: u8,
-    ) {
-        vec_map::insert(
-            &mut config.mint_rules,
-            kind,
-            type_name::get<R>(),
-        );
-    }
-
-    public fun remove_rule(
-        _cap: &AdminCap,
-        config: &mut Config,
-        kind: u8
-    ) {
-        vec_map::remove(
-            &mut config.mint_rules,
-            &kind,
-        );
     }
 
     public fun mint_by_admin(
@@ -99,16 +52,9 @@ module sui_mover_kapy::orange {
         }
     }
 
-    //  Getter funs
+    //  Getter Funs
 
     public fun kind(orange: &Orange): u8 {
         orange.kind
-    }
-
-    //  Test-only funs
-
-    #[test_only]
-    public fun init_for_testing(ctx: &mut TxContext) {
-        init(ctx);
     }
 }

@@ -25,6 +25,7 @@ module sui_mover_kapy::kapy {
         username: String,
         belongings: VecSet<u8>,
         level: u8,
+        bytes: vector<u8>,
     }
 
     // Capability
@@ -74,7 +75,7 @@ module sui_mover_kapy::kapy {
         transfer::transfer(cap, deployer);
     }
 
-    // Public funs
+    // Public Funs
 
     public fun update_username(
         kapy: &mut Kapy,
@@ -108,6 +109,7 @@ module sui_mover_kapy::kapy {
             username: utf8(b""),
             belongings: vec_set::empty(),
             level: 0,
+            bytes: vector[],
         }
     }
 
@@ -142,7 +144,7 @@ module sui_mover_kapy::kapy {
         cap.supply
     }
 
-    //  Test-only funs
+    //  Test-only Funs
 
     #[test_only]
     public fun init_for_testing(ctx: &mut TxContext) {
