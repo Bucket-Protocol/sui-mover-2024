@@ -69,4 +69,16 @@ module sui_mover_kapy::config {
     public fun init_for_testing(ctx: &mut TxContext) {
         init(ctx);
     }
+
+    #[test_only]
+    public fun add_mint_rule_for_testing<R: drop>(
+        config: &mut Config,
+        kind: u8,
+    ) {
+        vec_map::insert(
+            &mut config.mint_rules,
+            kind,
+            type_name::get<R>(),
+        );   
+    }
 }
