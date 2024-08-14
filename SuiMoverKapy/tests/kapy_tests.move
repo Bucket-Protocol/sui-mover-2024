@@ -28,7 +28,7 @@ module sui_mover_kapy::kapy_tests {
 
             // mint and check kapy_0
             let kapy_0 = kapy::mint(&mut mint_cap, ts::ctx(s));            // check kapy_0
-            assert!(kapy_0.index() == 0, 0);
+            assert!(kapy_0.index() == 1, 0);
             assert!(kapy_0.username() == utf8(b""), 0);
             assert!(kapy_0.level() == 0, 0);
             transfer::public_transfer(kapy_0, user_0());
@@ -37,7 +37,7 @@ module sui_mover_kapy::kapy_tests {
             // mint and check kapy_1
             let mut kapy_1 = kapy::mint(&mut mint_cap, ts::ctx(s));
             kapy_1.update_username(utf8(b"justa"));
-            assert!(kapy_1.index() == 1, 0);
+            assert!(kapy_1.index() == 2, 0);
             assert!(kapy_1.username() == utf8(b"justa"), 0);
             assert!(kapy_1.level() == 0, 0);
             transfer::public_transfer(kapy_1, user_1());

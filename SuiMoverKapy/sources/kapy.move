@@ -101,11 +101,10 @@ module sui_mover_kapy::kapy {
         cap: &mut MintCap,
         ctx: &mut TxContext,
     ): Kapy {
-        let index = cap.supply;
-        cap.supply = index + 1;
+        cap.supply = cap.supply() + 1;
         Kapy {
             id: object::new(ctx),
-            index,
+            index: cap.supply(),
             username: utf8(b""),
             belongings: vec_set::empty(),
             level: 0,
