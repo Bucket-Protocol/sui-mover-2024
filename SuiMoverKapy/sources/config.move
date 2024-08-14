@@ -55,12 +55,13 @@ module sui_mover_kapy::config {
 
     // Getter Funs
 
-    public fun get_mint_rule(config: &Config, kind: u8): TypeName {
-        *vec_map::get(&config.mint_rules, &kind)
-    }
-
     public fun is_valid_mint_rule<R: drop>(config: &Config, kind: u8): bool {
-        get_mint_rule(config, kind) == type_name::get<R>()
+        if (vec_map::contains(&config.mint_rules, &kind)) {
+            let rule_name = *vec_map::get(&config.mint_rules, &kind);
+            rule_name == type_name::get<R>()
+        } else {
+            false
+        }
     }
 
     // Test-only Funs
