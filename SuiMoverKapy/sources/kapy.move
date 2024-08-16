@@ -53,7 +53,7 @@ module sui_mover_kapy::kapy {
             // description
             utf8(b"Each orange represents your effort and achievement!"),
             // image_url
-            utf8(b"ipfs://Qmd9RpFKPBDzHdfnq7HSdhND9svg1fJxr7GAwTYwfEr5vh/{index}_{level}o.png"),
+            utf8(b"https://aqua-natural-grasshopper-705.mypinata.cloud/ipfs/Qmd9RpFKPBDzHdfnq7HSdhND9svg1fJxr7GAwTYwfEr5vh/{index}_{level}o.png"),
             // project_url
             utf8(b"https://lu.ma/skany77u"),
             // creator
