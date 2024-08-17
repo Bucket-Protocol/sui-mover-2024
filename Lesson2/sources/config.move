@@ -21,10 +21,15 @@ module sui_mover_kapy::config {
     // Constructor
 
     fun init(ctx: &mut TxContext) {
-        let config = Config { id: object::new(ctx), mint_rules: vec_map::empty() };
+        let config = Config {
+            id: object::new(ctx),
+            mint_rules: vec_map::empty(),
+        };
         transfer::share_object(config);
 
-        let cap = AdminCap { id: object::new(ctx) };
+        let cap = AdminCap {
+            id: object::new(ctx),
+        };
         transfer::transfer(cap, ctx.sender());
     }
 
