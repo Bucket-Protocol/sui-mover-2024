@@ -101,11 +101,37 @@ module sui_mover_exercise_2::exercise_2 {
         transfer::public_transfer(orange, recipient);
     }
 
+    // Admin Funs
+
+    public fun withdraw(
+        _cap: &WithdrawCap,
+        store: &mut OrangeStore,
+        ctx: &mut TxContext,
+    ): Coin<SUI> {
+        coin::from_balance(store.treasury.withdraw_all(), ctx)
+    }
+
+    entry fun withdraw_to(
+        cap: &WithdrawCap,
+        store: &mut OrangeStore,
+        recipient: address,
+        ctx: &mut TxContext,
+    ) {
+        transfer::public_transfer(
+            withdraw(cap, store, ctx),
+            recipient,
+        );
+    }
+
     // Getter Funs
 
     public fun orange_kind(): u8 { ORANGE_KIND }
 
     public fun basic_price(): u64 { ORANGE_BASIC_PRICE }
+
+    public fun treasury_value(store: &OrangeStore): u64 {
+        store.treasury.value()
+    }
 
     #[test_only]
     public fun init_for_testing(ctx: &mut TxContext) {
