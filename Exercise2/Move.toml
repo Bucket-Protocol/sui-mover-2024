@@ -3,6 +3,7 @@ name = "SuiMoverExercise2"
 edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
 # license = ""           # e.g., "MIT", "GPL", "Apache 2.0"
 # authors = ["..."]      # e.g., ["Joe Smith (joesmith@noemail.com)", "John Snow (johnsnow@noemail.com)"]
+published-at = "0x64eb322ed5a856bb7bcb2744d99f4eacfebd84c7d80ca733907879a2f29e3abf"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
@@ -20,7 +21,8 @@ SuiMoverKapy = { local = "../Lesson2" }
 # Override = { local = "../conflicting/version", override = true }
 
 [addresses]
-sui_mover_exercise_2 = "0x0"
+# sui_mover_exercise_2 = "0x0"
+sui_mover_exercise_2 = "0x64eb322ed5a856bb7bcb2744d99f4eacfebd84c7d80ca733907879a2f29e3abf"
 
 # Named addresses will be accessible in Move as `@name`. They're also exported:
 # for example, `std = "0x1"` is exported by the Standard Library.
