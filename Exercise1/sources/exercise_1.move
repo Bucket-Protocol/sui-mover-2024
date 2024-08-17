@@ -9,8 +9,8 @@ module sui_mover_exercise_1::exercise_1 {
 
     // Constants
 
-    const EMinUsernameLenfth: u64 = 3;
-    const EMaxUsernameLength: u64 = 16;
+    const MIN_USER_NAME_LENGTH: u64 = 3;
+    const MAX_USER_NAME_LENGTH: u64 = 16;
 
     // Errors
 
@@ -44,10 +44,10 @@ module sui_mover_exercise_1::exercise_1 {
         ctx: &mut TxContext,
     ) {
         // check 1
-        if (username.length() < EMinUsernameLenfth) err_username_too_short();
+        if (username.length() < MIN_USER_NAME_LENGTH) err_username_too_short();
 
         // check 2
-        if (username.length() > EMaxUsernameLength) err_username_too_long();
+        if (username.length() > MAX_USER_NAME_LENGTH) err_username_too_long();
 
         // check 3
         if (!is_all_letters(&username))
