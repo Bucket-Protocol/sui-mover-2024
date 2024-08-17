@@ -1,0 +1,17 @@
+{
+    "config": {
+        "objectId": "",
+        "initialSharedVersion": "317346334",
+        "mutable": "false"
+    },
+    "admin_cap":
+        "0x53c352873bb5ddb9ff329dc34d197858e7bbbf81e2e9819b9ca4d1e29351f8a5",
+    "mint_cap":
+        "0xdb819cfab40dfe75ae1e1da3adb83f5c955a449d5446001be8d7cf5f2c8fdcc1",
+    "display":
+        "0xa5f762cac6eb43fc27601d45271e3be90d314d9554f35b93341a0db450d49028",
+    "publisher":
+        "0x7d1340a3366c269bc31c22c597e2ae1fce662a0eeb7bf94c952ee990a8ed0745",
+    "upgrade_cap":
+        "0xea3834ceb7761be2714c903555b9d0740320555eaf55f42f9af8e656d3a73a84"
+}

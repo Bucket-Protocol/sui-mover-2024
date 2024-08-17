@@ -3,6 +3,7 @@ name = "SuiMoverKapy"
 edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
 # license = ""           # e.g., "MIT", "GPL", "Apache 2.0"
 # authors = ["..."]      # e.g., ["Joe Smith (joesmith@noemail.com)", "John Snow (johnsnow@noemail.com)"]
+published-at = "0xcbfbdaaa8e8a70556c0cf1a038ddb3d9cc86cdaeb1add61abf7ebd2becac7b9d"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
@@ -19,7 +20,8 @@ Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-fram
 # Override = { local = "../conflicting/version", override = true }
 
 [addresses]
-sui_mover_kapy = "0x0"
+# sui_mover_kapy = "0x0"
+sui_mover_kapy = "0xcbfbdaaa8e8a70556c0cf1a038ddb3d9cc86cdaeb1add61abf7ebd2becac7b9d"
 
 # Named addresses will be accessible in Move as `@name`. They're also exported:
 # for example, `std = "0x1"` is exported by the Standard Library.
@@ -34,4 +36,3 @@ sui_mover_kapy = "0x0"
 # The dev-addresses section allows overwriting named addresses for the `--test`
 # and `--dev` modes.
 # alice = "0xB0B"
-
