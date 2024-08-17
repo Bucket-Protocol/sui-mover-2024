@@ -14,7 +14,7 @@ module sui_mover_lesson_1::lesson_1_tests {
     fun test_sum() {
         let sum_result = lesson_1::sum(1, 2);
         debug::print(&sum_result);
-        assert!(sum_result == 3, 0);
+        assert!(sum_result == 3);
     }
 
     #[test]
@@ -50,11 +50,11 @@ module sui_mover_lesson_1::lesson_1_tests {
 
         let opt = lesson_1::try_borrow(&numbers, 0);
         debug::print(&opt);
-        assert!(opt.is_some(), 0);
+        assert!(opt.is_some());
 
         let opt = lesson_1::try_borrow(&numbers, 3);
         debug::print(&opt);
-        assert!(opt.is_none(), 0);
+        assert!(opt.is_none());
     }
 
     #[test]

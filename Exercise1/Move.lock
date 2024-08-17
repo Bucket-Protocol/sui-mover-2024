@@ -2,7 +2,7 @@
 
 [move]
 version = 2
-manifest_digest = "9B16A9CDBC6D25C94E2A6FD43E9E5114FAFA19797047F1AD53E4FB1268F0910B"
+manifest_digest = "A06E236E1947F5FB390773C1E7CE9F82B3F90FB9FC1AE27409D074B7BFAF5042"
 deps_digest = "3C4103934B1E040BB6B23F1D610B4EF9F2F1166A50A104EADCF77467C004C600"
 dependencies = [
   { name = "Sui" },
@@ -23,7 +23,7 @@ dependencies = [
 
 [[move.package]]
 name = "SuiMoverKapy"
-source = { local = "../SuiMoverKapy" }
+source = { local = "../Lesson2" }
 
 dependencies = [
   { name = "Sui" },
