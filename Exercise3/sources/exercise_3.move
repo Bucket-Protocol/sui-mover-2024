@@ -23,13 +23,7 @@ module sui_mover_exercise_3::exercise_3 {
         id: UID,
         treasury: Balance<SUI>,
     }
-
-    // Hot Potato
-
-    public struct PaymentInfo {
-        price: u64,
-    }
-
+    
     // Constructor
 
     fun init(ctx: &mut TxContext) {
@@ -38,6 +32,12 @@ module sui_mover_exercise_3::exercise_3 {
             treasury: balance::zero(),
         };
         transfer::share_object(store);
+    }
+
+    // Hot Potato
+
+    public struct PaymentInfo {
+        price: u64,
     }
 
     // Public Funs
@@ -66,6 +66,7 @@ module sui_mover_exercise_3::exercise_3 {
         ctx: &mut TxContext,
     ): Orange {
         let PaymentInfo { price } = info;
+        // assert!(payment.value() >= price, EPaymentNotEnough);
         if (payment.value() < price) err_payment_not_enough();
         coin::put(&mut store.treasury, payment);
         orange::mint(
