@@ -41,6 +41,8 @@ module sui_mover_kapy::orange {
         kind
     }
 
+    // Admin Funs
+
     public fun mint_by_admin(
         _cap: &AdminCap,
         kind: u8,
