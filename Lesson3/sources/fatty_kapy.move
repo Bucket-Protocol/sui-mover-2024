@@ -177,8 +177,8 @@ module sui_mover_lesson_3::fatty_kapy {
         age: u8,
         gender: bool,
         height: u64
-    ){
-        let info = KapyWrappedInfo{
+    ) {
+        let info = KapyWrappedInfo {
             age,
             gender,
             height
@@ -192,8 +192,8 @@ module sui_mover_lesson_3::fatty_kapy {
         color: String,
         size: u8,
         ctx: &mut TxContext
-    ){
-        let hat = Hat{
+    ) {
+        let hat = Hat {
             id: object::new(ctx),
             color,
             size

@@ -15,7 +15,7 @@ module sui_mover_lesson_3::hot_potato {
 
     /// Hot Potato
     public struct Loan {
-        amount: u64,
+        amount: u64
     }
 
     public fun borrow(
@@ -23,14 +23,14 @@ module sui_mover_lesson_3::hot_potato {
         amount: u64,
         ctx: &mut TxContext
     ): (Coin<SUI>, Loan) {
-    assert!(amount <= balance::value(&pool.amount), ELoanAmountExceedPool);
+        assert!(amount <= balance::value(&pool.amount), ELoanAmountExceedPool);
 
-    let coin = coin::from_balance(pool.amount.split(amount), ctx);
-    let loan = Loan{
-        amount
-    };
+        let coin = coin::from_balance(pool.amount.split(amount), ctx);
+        let loan = Loan {
+            amount
+        };
 
-    (coin, loan)
+        (coin, loan)
     }
 
     public fun repay(pool: &mut LoanPool, loan: Loan, payment: Coin<SUI>) {
