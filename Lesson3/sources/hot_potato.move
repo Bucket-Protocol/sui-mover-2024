@@ -2,8 +2,6 @@ module sui_mover_lesson_3::hot_potato {
     use sui::sui::SUI;
     use sui::coin::{Self, Coin};
     use sui::balance::{Self, Balance};
-    use sui::object::{UID};
-    use sui::tx_context::{TxContext};
 
     const ELoanAmountExceedPool: u64 = 0;
     const ERepayAmountInvalid: u64 = 1;
