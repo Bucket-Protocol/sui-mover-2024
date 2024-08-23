@@ -5,9 +5,6 @@ module sui_mover_lesson_3::fatty_kapy {
     use std::string::{String, utf8};
     use sui::package;
     use sui::display;
-    use sui::sui::SUI;
-    use sui::coin::Coin;
-    use sui::balance::Balance;
     use sui::vec_set::{Self, VecSet};
     use sui_mover_lesson_3::orange::{Self, Orange};
 
