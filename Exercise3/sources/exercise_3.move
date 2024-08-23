@@ -147,6 +147,10 @@ module sui_mover_exercise_3::exercise_3 {
         borrow_treasury<T>(store).balance.value()
     }
 
+    public fun discount(voucher: &DiscountVoucher): u64 {
+        voucher.discount
+    }
+
     // Internal Funs
 
     fun borrow_treasury<T>(store: &OrangeStore): &Treasury<T> {
