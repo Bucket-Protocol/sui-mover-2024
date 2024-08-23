@@ -1,0 +1,10 @@
+{
+    "packageId":"0xf61cffb662dda6c8ac484f299361b0d85464d06e46603321ad0b7311f0594490",
+    "orangeStore": {
+      "objectId": "0xd4fb85849ac089d5df317663b818dda0cf35a9f8b3c68ec81f941d010019bf7d",
+      "initialSharedVersion": 325340903,
+      "mutable": true
+    },
+    "keeperCap": "0x55bb20dbb142c90351a040f170f38cab0598da3cdd5cda69b42bb7939f4aa3df",
+    "upgradCap": "0x49721ea86a3655e23c1300dadc54378e379f2c95cebae7bb06b6b3f1d694e922"
+  }
