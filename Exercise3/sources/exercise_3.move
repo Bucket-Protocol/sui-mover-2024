@@ -57,9 +57,7 @@ module sui_mover_exercise_3::exercise_3 {
     // Constructor
 
     fun init(ctx: &mut TxContext) {
-        let store = OrangeStore {
-            id: object::new(ctx),
-        };
+        let store = OrangeStore { id: object::new(ctx) };
         transfer::share_object(store);
         
         let cap = KeeperCap { id: object::new(ctx) };
@@ -89,7 +87,6 @@ module sui_mover_exercise_3::exercise_3 {
     ): Orange {
         let DiscountVoucher { discount } = voucher;
         let price = store.normal_price<T>() * (10 - discount) / 10;
-        // assert!(payment.value() >= price, EPaymentNotEnough);
         if (payment.value() < price) err_payment_not_enough();
         store.put_into_treasury(payment);
         orange::mint(
