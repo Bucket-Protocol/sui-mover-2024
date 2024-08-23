@@ -28,7 +28,7 @@ module sui_mover_exercise_3::exercise_3 {
 
     fun init(ctx: &mut TxContext) {
         let store = OrangeStore {
-            id: object::new(ctx),
+           id: object::new(ctx),
             treasury: balance::zero(),
         };
         transfer::share_object(store);
