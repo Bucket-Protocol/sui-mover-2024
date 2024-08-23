@@ -1,8 +1,8 @@
-module sui_mover_kapy::orange {
+module sui_mover_lesson_3::orange {
     
     // Dependencies
 
-    use sui_mover_kapy::config::{Self, Config, AdminCap};
+    use sui_mover_lesson_3::config::{Self, Config, AdminCap};
 
     // Errors
 
